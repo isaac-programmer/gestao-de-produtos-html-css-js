@@ -13,13 +13,23 @@ html {
     font-size: 10px;
 }
 
+header h1 {
+    color: #FFFFFF;
+    text-align: center;
+    background-color: #000000;
+}
+
 main {
+    font-size: 1.6rem;
+    height: auto;
+}
+
+.main__produtos {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding: 20px 0;
     flex-wrap: wrap;
-    border: 1px solid black;
 }
 
 .main__produto {
@@ -33,15 +43,68 @@ main {
     border: 1px solid;
 }
 
-footer {
-    background-color: #000000;
-    color: #FFFFFF;
+.main__produto:hover {
+    cursor: pointer;
 }
 
-footer p {
-    font-size: 1.6rem;
-    font-weight: 500;
+.main__opcoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__opcoes a{
+    border: 1px solid;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.main__opcoes a:first-child{
+    margin-right: 10px;
+}
+
+.main__opcoes a:hover{
+    border: 1px solid;
+    text-decoration: underline;
+}
+
+.produto__id {
+    font-size: 3.2rem;
+}
+
+.produto__imagem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.produto__imagem img{
+    max-width: 60%;
+}
+
+#form-produto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid;
+}
+
+#form-produto h2 {
     text-align: center;
+}
+
+#form-produto textarea {
+    resize: none;
+}
+
+#form-produto select,
+#form-produto textarea,
+#form-produto input {
+    display: inline-block;
+    margin-bottom: 10px;
+    border: 1px solid black;
 }
 
 /* Media Queries */

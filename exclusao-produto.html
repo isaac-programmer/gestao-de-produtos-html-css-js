@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Isaac Daniel Bezerra"/>
+    <meta name="description" content="Um inventário de produtos dum e-commerce"/>
+    <title>Inventário de produtos</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+    <header role="heading">
+        <h1>Inventário de produtos</h1>
+    </header>
+    <main role="main">
+        <section class="main__produtos">
+            <form id="form-produto">
+                <h2>Exclusão de produto</h2>
+            
+                <label for="idProduto">Número de identificação</label>
+                <input type="number" id="idProduto" placeholder="Informe o número de identificação do produto" required aria-required="true">  
+                
+                <button onclick="excluirProduto()">Excluir produto</button>
+            </form>
+        </section>
+        <section class="main__opcoes">
+            <a href="index.html">Voltar</a>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <p>&copy; Copyright - Todos os direitos reservados - <span id="anoAtual"></span></p>
+    </footer>
+    <script src="js/scripts.js"></script>
+    <script type="text/javascript">
+        const date = new Date();
+        const anoAtual = date.getFullYear();
+        document.getElementById('anoAtual').textContent = anoAtual;
+    </script>
+</body>
+
+</html>
