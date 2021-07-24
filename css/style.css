@@ -17,11 +17,8 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: ;
+    padding: 20px 0;
     flex-wrap: wrap;
-    width: 90%;
-    height: 100vh;
-    margin: 0 auto;
     border: 1px solid black;
 }
 
@@ -29,6 +26,7 @@ main {
     width: 300px;
     height: 350px;
     display: flex;
+    margin: 20px 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
