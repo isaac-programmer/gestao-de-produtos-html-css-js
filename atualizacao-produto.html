@@ -17,9 +17,12 @@
     <main role="main">
         <section class="main__produtos">
             <form id="form-produto">
-                <h2>Cadastro de produto</h2>
+                <h2>Atualização de produto</h2>
+
+                <label for="idProduto">Número do produto</label>
+                <input type="number" id="idProduto">
             
-                <label for="nomeProduto">Nome</label>
+                <label for="nomeProduto">Novo nome</label>
                 <select id="nomeProduto">
                     <option value="">Selecione</option>
                     <option value="Desinfetante">Desinfetante</option>
@@ -29,7 +32,7 @@
                     <option value="Regador">Regador</option>
                 </select>
 
-                <label for="imagemProduto">Nome da imagem</label>
+                <label for="imagemProduto">Novo nome da imagem</label>
                 <select id="imagemProduto">
                     <option value="">Selecione</option>
                     <option value="desinfetante">desinfetante</option>
@@ -39,10 +42,10 @@
                     <option value="regador">regador</option>
                 </select>
 
-                <label for="precoProduto">Preço</label>
+                <label for="precoProduto">Novo preço</label>
                 <input type="text" id="precoProduto" placeholder="Ex: 00,00" required aria-required="true">  
                 
-                <button onclick="cadastrarProduto()">Cadastrar produto</button>
+                <button onclick="atualizarProduto()">Atualizar produto</button>
             </form>
         </section>
         <section id="main__opcoes">

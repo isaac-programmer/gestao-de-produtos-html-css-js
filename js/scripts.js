@@ -1,12 +1,38 @@
-var qtdProdutos = localStorage.getItem('qtdProdutos');
+var secaoProdutos = document.getElementsByClassName('main__produtos')[0];
 
-function buscarProdutos() {
-    var resposta = prompt('É a sua primeira vez aqui? 1 = Sim, 2 = Não');
+function cadastrarProduto() {
+    let nomeProduto = document.getElementById("nomeProduto").value;
+    let nomeImagem = document.getElementById("imagemProduto").value;
+    let preco = document.getElementById("precoProduto").value;
 
-    if(resposta == '1'){
+    if(nomeProduto == "" || nomeImagem == "" || preco == ""){
+        window.alert("Por favor preencha todos os campos!");
+    }else{ 
+        let idProduto = Number.parseInt(localStorage.getItem('qtdProdutos')) + 1;
+        localStorage.setItem('qtdProdutos', `${idProduto}`);
+    
+        let produto = {
+            id: idProduto,
+            nome: nomeProduto,
+            nomeImagem: nomeImagem,
+            preco: preco
+        }
+    
+        localStorage.setItem(`produto_${idProduto}`, JSON.stringify(produto));
+    
+        window.alert("Produto cadastrado com sucesso!");
+    }
+}
+
+function exibirProdutos() {
+    if(localStorage.getItem('qtdProdutos') == null){
         localStorage.setItem('qtdProdutos', '0');
-    }else if(resposta == '2'){
-        let secaoProdutos = document.getElementsByClassName('main__produtos')[0];
+        secaoProdutos.innerHTML = `
+            <p id="main__estoque-vazio">
+                Nenhum produto disponível no estoque! 
+            </p>`;
+    }else if(localStorage.getItem('qtdProdutos') > 0){
+        let qtdProdutos = localStorage.getItem('qtdProdutos');
 
         for(let i = 1; i <= qtdProdutos; i++){
             let produto = JSON.parse(localStorage.getItem(`produto_${i}`));
@@ -18,38 +44,19 @@ function buscarProdutos() {
                     <img src="imagens/${produto.nomeImagem}.jpg" alt="Foto do Produto">
                 </div>
                 <p class="produto__nome">${produto.nome}</p>
-                <p class="produto__descricao">${produto.descricao}</p>
                 <p class="produto__preco">R$ ${produto.preco}</p>
             </div>`;
         }
+    }else if(localStorage.getItem('qtdProdutos') == 0){
+            secaoProdutos.innerHTML = `
+            <p id="main__estoque-vazio">
+                Nenhum produto disponível no estoque! 
+            </p>`;
     }
 }
 
-function cadastrarProduto() {
-    let nomeProduto = document.getElementById("nomeProduto").value;
-    let nomeImagem = document.getElementById("imagemProduto").value;
-    let descricao = document.getElementById("descricaoProduto").value;
-    let preco = document.getElementById("precoProduto").value;
-
-    if(nomeProduto == "" || nomeImagem == "" || descricao == "" || preco == ""){
-        window.alert("Por favor preencha todos os campos!");
-    }else{ 
-
-        let idProduto = Number.parseInt(localStorage.getItem('qtdProdutos')) + 1;
-        localStorage.setItem('qtdProdutos', `${idProduto}`);
-    
-        let produto = {
-            id: idProduto,
-            nome: nomeProduto,
-            nomeImagem: nomeImagem,
-            descricao: descricao,
-            preco: preco
-        }
-    
-        localStorage.setItem(`produto_${idProduto}`, JSON.stringify(produto));
-    
-        window.alert("Produto cadastrado com sucesso!");
-    }
+function limparEstoque() {
+    localStorage.clear();
 }
 
 /*function excluirProduto() {

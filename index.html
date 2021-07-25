@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="Isaac Daniel Bezerra"/>
-    <meta name="description" content="Um inventário de produtos dum e-commerce"/>
+    <meta name="description" content="Um estoque de produtos dum e-commerce"/>
     <title>Inventário de produtos</title>
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 
-<body onload="buscarProdutos()">
+<body onload="exibirProdutos()">
     <header role="heading">
-        <h1>Inventário de produtos</h1>
+        <h1>Estoque de produtos</h1>
     </header>
     <main role="main">
         <section class="main__produtos"></section>
-        <section class="main__opcoes">
+        <section id="main__opcoes">
             <a href="cadastro-produto.html">Cadastrar produto</a>
-            <!--<a href="exclusao-produto.html">Excluir produto</a>-->
+            <a href="index.html" onclick="limparEstoque()">Limpar estoque</a>
         </section>
     </main>
     
